@@ -1,4 +1,9 @@
 
+1.2.3
+==================
+* Be robust to lock names that are also Object keys.
+* Upgrade dependencies
+
 1.2.2
 ==================
 * Fix grunt-env accidentally having become a dependency (#25)
