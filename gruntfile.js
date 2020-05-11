@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	// Unified Watch Object
 	var watchFiles = {
 		libJS: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
-		testJS: ['test/**/*.js'],
+		testJS: ['test/**/*.js']
 	};
 
 	// Project Configuration
@@ -40,7 +40,7 @@ module.exports = function(grunt) {
 					timeout: 5000,
 					noFail: false
 				}
-			},
+			}
 		}
 	});
 
