@@ -1,4 +1,8 @@
 
+1.2.4
+==================
+* Be robust to lock names that are also Object keys - simpler solution, extra tests.
+
 1.2.3
 ==================
 * Be robust to lock names that are also Object keys.
