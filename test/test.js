@@ -113,6 +113,24 @@ describe('AsyncLock Tests', function () {
 		});
 	});
 
+	it('should allow lock names that are also Object keys', function (done) {
+		var lock = new AsyncLock();
+		var key = 'constructor';
+		var cb1;
+		var client1Done = false;
+		lock.acquire(key, function(cb) {
+			cb1 = cb;
+		});
+		lock.acquire(key, function(cb) {
+			assert(client1Done);
+			cb();
+			done();
+		});
+		assert(!!cb1);
+		client1Done = true;
+		cb1();
+	});
+
 	it('Time out test', function (done) {
 		var lock = new AsyncLock({ timeout: 20 });
 		var timedout = false;
@@ -344,4 +362,5 @@ describe('AsyncLock Tests', function () {
 			assert.equal(status, 'result');
 		});
 	}).timeout(20);
+
 });
