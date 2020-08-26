@@ -31,7 +31,7 @@ redis.get('key', function(err, value) {
 });
 ```
 The above code simply multiply a redis key by 2.
-However, if two users run concurrency, the execution order may like this
+However, if two users run concurrently, the execution order may like this
 ```
 user1: redis.get('key') -> 1
 user2: redis.get('key') -> 1
