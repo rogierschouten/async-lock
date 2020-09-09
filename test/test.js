@@ -28,6 +28,7 @@ describe('AsyncLock Tests', function () {
 			lock.acquire(key, function (cb) {
 				assert(!isRunning[key]);
 				assert(lock.isBusy() && lock.isBusy(key));
+				isRunning[key] = true;
 
 				var timespan = Math.random() * 10;
 				console.log('task%s(key%s) start, %s ms', number, key, timespan);
