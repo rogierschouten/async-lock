@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 	// Unified Watch Object
 	var watchFiles = {
 		libJS: ['gruntfile.js', 'index.js', 'lib/**/*.js'],
-		testJS: ['test/**/*.js'],
+		testJS: ['test/**/*.js']
 	};
 
 	// Project Configuration
@@ -38,21 +38,8 @@ module.exports = function(grunt) {
 				options : {
 					reporter: 'spec',
 					timeout: 5000,
-					require: 'test/blanket'
+					noFail: false
 				}
-			},
-			coverage: {
-				src: watchFiles.testJS,
-				options : {
-					reporter: 'html-cov',
-					quiet: true,
-					captureFile: 'coverage.html'
-				}
-			}
-		},
-		clean: {
-			'coverage.html' : {
-				src: ['coverage.html']
 			}
 		}
 	});
@@ -60,14 +47,11 @@ module.exports = function(grunt) {
 	// Load NPM tasks
 	require('load-grunt-tasks')(grunt);
 
-	// Making grunt default to force in order not to break the project.
-	grunt.option('force', true);
-
 	// Lint task(s).
 	grunt.registerTask('lint', ['jshint']);
 
 	// Test task.
-	grunt.registerTask('test', ['clean', 'lint', 'env:test', 'mochaTest']);
+	grunt.registerTask('test', ['lint', 'env:test', 'mochaTest']);
 
 	// Default task(s).
 	grunt.registerTask('default', ['test']);

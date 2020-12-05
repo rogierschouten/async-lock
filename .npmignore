@@ -8,9 +8,13 @@
 *.sublime-workspace
 coverage.html
 .DS_Store
+.editorconfig
 .project
 .gitignore
+.jshintrc
 .nodemonignore
+.travis.yml
+gruntfile.js
 .settings/
 .sass-cache/
 .bower-*/
@@ -18,3 +22,5 @@ coverage.html
 .svn/
 node_modules/
 tmp/
+test/
+

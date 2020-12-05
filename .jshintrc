@@ -1,7 +1,7 @@
 {
 	"node": true, // Enable globals available when code is running inside of the NodeJS runtime environment.
 	"browser": true, // Standard browser globals e.g. `window`, `document`.
-	"esnext": true, // Allow ES.next specific features such as `const` and `let`.
+	"esversion": 5,
 	"bitwise": false, // Prohibit bitwise operators (&, |, ^, etc.).
 	"camelcase": false, // Permit only camelcase for `var` and `object indexes`.
 	"curly": false, // Require {} for every new block or scope.
@@ -20,7 +20,8 @@
 	"globals": { // Globals variables.
 		"jasmine": true,
 		"angular": true,
-		"ApplicationConfiguration": true
+		"ApplicationConfiguration": true,
+		"Promise": true
 	},
 	"predef": [ // Extra globals.
 		"define",
