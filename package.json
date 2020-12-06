@@ -1,7 +1,7 @@
 {
   "name": "async-lock",
   "description": "Lock on asynchronous code",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "author": {
     "name": "Rogier Schouten",
     "url": "https://github.com/rogierschouten/",

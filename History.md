@@ -1,3 +1,7 @@
+1.2.5
+==================
+* Allow `maxPending = 0`  (thank you @bmrpatel)
+* Upgrade dependencies
 
 1.2.4
 ==================
