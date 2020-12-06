@@ -1,3 +1,7 @@
+1.2.6
+==================
+* Fix `maxPending = Infinity` no longer allowed  (thank you @coderaiser)
+
 1.2.5
 ==================
 * Allow `maxPending = 0`  (thank you @bmrpatel)

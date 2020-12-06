@@ -260,6 +260,24 @@ describe('AsyncLock Tests', function () {
 			});
 	});
 
+	it('Infinitely max pending', function (done) {
+		var lock = new AsyncLock({ maxPending: Infinity });
+		lock.acquire('key', function () {
+			return Q().delay(20); // jshint ignore:line
+		});
+		lock.acquire('key', function () {
+			return Q().delay(20); // jshint ignore:line
+		});
+
+		lock.acquire('key', function () { })
+			.then(function () {
+				done();
+			})
+			.catch(function (e) {
+				done(e);
+			});
+	});
+
 	it('set maxPending to 0', function(done){
 		var lock = new AsyncLock({maxPending : 0});
 		lock.acquire('key', function(){
