@@ -40,7 +40,7 @@
     "grunt-env": "^1.0.1",
     "grunt-mocha-test": "^0.13.3",
     "load-grunt-tasks": "^4.0.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "mocha": "^7.1.2",
     "q": "^1.5.1",
     "should": "^13.2.1"
