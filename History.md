@@ -1,3 +1,7 @@
+1.2.7
+==================
+* Fix #37 process not set when acquiring lock (Thank you @Philipp91)
+
 1.2.6
 ==================
 * Fix `maxPending = Infinity` no longer allowed  (thank you @coderaiser)
