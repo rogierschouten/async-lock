@@ -1,6 +1,10 @@
-1.2.7
+1.2.8
 ==================
 * Fix #37 process not set when acquiring lock (Thank you @Philipp91)
+
+1.2.7
+==================
+DO NOT USE, erroneous publish
 
 1.2.6
 ==================
