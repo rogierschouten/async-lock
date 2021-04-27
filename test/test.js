@@ -164,8 +164,8 @@ describe('AsyncLock Tests', function () {
 		var order = 0;
 
 		lock.acquire('key', function (cb) {
-			callBack = cb
-			setTimeout(() => {
+			callBack = cb;
+			setTimeout(function(){
 				assert.equal(++order, 3);
 				if (!maxOccupationTimeExceeded) cb();
 				assert(maxOccupationTimeExceeded);
