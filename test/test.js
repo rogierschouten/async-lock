@@ -157,6 +157,37 @@ describe('AsyncLock Tests', function () {
 			});
 	});
 
+	it('Max occupation time test', function (done) {
+		var lock = new AsyncLock({ maxOccupationTime: 10 });
+		var maxOccupationTimeExceeded = false;
+		var callBack = null;
+		var order = 0;
+
+		lock.acquire('key', function (cb) {
+			callBack = cb;
+			setTimeout(function(){
+				assert.equal(++order, 3);
+				if (!maxOccupationTimeExceeded) cb();
+				assert(maxOccupationTimeExceeded);
+				done();
+			}, 50);
+		})
+		.catch(function (err) {
+			// max occupation time is passed
+			console.log(err);
+			assert.equal(++order, 1);
+			// release the lock and cancel the job if needed
+			maxOccupationTimeExceeded = true;
+			callBack();
+		});
+
+		lock.acquire('key', function (cb) {
+			// Should be executed first
+			assert.equal(++order, 2);
+			cb();
+		});
+	});
+
 	it('Promise mode (Q)', function (done) {
 		var lock = new AsyncLock();
 		var value = 0;
