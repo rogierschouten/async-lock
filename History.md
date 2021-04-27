@@ -1,3 +1,7 @@
+1.3.0
+==================
+* Add maxOccupationTime option (Thank you @abozaralizadeh)
+
 1.2.8
 ==================
 * Fix #37 process not set when acquiring lock (Thank you @Philipp91)
