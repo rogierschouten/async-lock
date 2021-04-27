@@ -1,6 +1,6 @@
 1.3.0
 ==================
-* Add maxOccupationTime option (Thank you @abozaralizadeh)
+* Add maxOccupationTime option (Thank you @abozaralizadeh and @ThePiz)
 
 1.2.8
 ==================
