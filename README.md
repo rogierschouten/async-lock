@@ -7,6 +7,7 @@ Lock on asynchronous code
 * ES6 promise supported
 * Multiple keys lock supported
 * Timeout supported
+* Occupation time limit supported
 * Pending task limit supported
 * Domain reentrant supported
 * 100% code coverage
@@ -129,6 +130,12 @@ d.run(function() {
 var lock = new AsyncLock({timeout: 5000});
 lock.acquire(key, fn, function(err, ret) {
 	// timed out error will be returned here if lock not acquired in given time
+});
+
+// Specify max occupation time
+var lock = new AsyncLock({maxOccupationTime: 3000});
+lock.acquire(key, fn, function(err, ret) {
+	// occupation time exceeded error will be returned here if job not completed in given time
 });
 
 // Set max pending tasks
