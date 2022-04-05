@@ -126,19 +126,19 @@ d.run(function() {
 ## Options
 
 ```js
-// Specify timeout
+// Specify timeout - max amount of time an item can remain in the queue before acquiring the lock
 var lock = new AsyncLock({timeout: 5000});
 lock.acquire(key, fn, function(err, ret) {
 	// timed out error will be returned here if lock not acquired in given time
 });
 
-// Specify max occupation time
+// Specify max occupation time - max amount of time allowed between entering the queue and completing execution
 var lock = new AsyncLock({maxOccupationTime: 3000});
 lock.acquire(key, fn, function(err, ret) {
 	// occupation time exceeded error will be returned here if job not completed in given time
 });
 
-// Set max pending tasks
+// Set max pending tasks - max number of tasks allowed in the queue at a time
 var lock = new AsyncLock({maxPending: 1000});
 lock.acquire(key, fn, function(err, ret) {
 	// Handle too much pending error
