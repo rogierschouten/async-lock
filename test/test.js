@@ -266,12 +266,24 @@ describe('AsyncLock Tests', function () {
 		});
 	});
 
-	it('Error handling', function (done) {
+	it('Error handling: promise mode', function (done) {
 		var lock = new AsyncLock();
 		lock.acquire('key', function () {
 			throw new Error('error');
 		}).catch(function (e) {
 			assert(e.message === 'error');
+			assert(!lock.isBusy());
+			done();
+		});
+	});
+
+	it('Error handling: callback mode', function (done) {
+		var lock = new AsyncLock();
+		lock.acquire('key', function (_lockDone) {
+			throw new Error('error');
+		}).catch(function (e) {
+			assert(e.message === 'error');
+			assert(!lock.isBusy());
 			done();
 		});
 	});
