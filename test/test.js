@@ -436,4 +436,12 @@ describe('AsyncLock Tests', function () {
 		});
 	}).timeout(20);
 
+	it('Does not mutate key array during batch acquire', function () {
+		var lock = new AsyncLock();
+		var keys = [1, 2, 3];
+		return lock.acquire(keys, function () { })
+			.then(function () {
+				assert.deepEqual(keys, [1, 2, 3]);
+			});
+	});
 });
