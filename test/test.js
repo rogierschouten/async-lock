@@ -266,7 +266,7 @@ describe('AsyncLock Tests', function () {
 		});
 	});
 
-	it('Error handling: promise mode', function (done) {
+	it('Error handling: promise mode, throwing error', function (done) {
 		var lock = new AsyncLock();
 		lock.acquire('key', function () {
 			throw new Error('error');
@@ -277,10 +277,32 @@ describe('AsyncLock Tests', function () {
 		});
 	});
 
-	it('Error handling: callback mode', function (done) {
+	it('Error handling: promise mode, returning rejection', function (done) {
+		var lock = new AsyncLock();
+		lock.acquire('key', function () {
+			return Promise.reject(new Error('error'));
+		}).catch(function (e) {
+			assert(e.message === 'error');
+			assert(!lock.isBusy());
+			done();
+		});
+	});
+
+	it('Error handling: callback mode, throwing error', function (done) {
 		var lock = new AsyncLock();
 		lock.acquire('key', function (_lockDone) {
 			throw new Error('error');
+		}).catch(function (e) {
+			assert(e.message === 'error');
+			assert(!lock.isBusy());
+			done();
+		});
+	});
+
+	it('Error handling: callback mode, returning error', function (done) {
+		var lock = new AsyncLock();
+		lock.acquire('key', function (lockDone) {
+			lockDone(new Error('error'));
 		}).catch(function (e) {
 			assert(e.message === 'error');
 			assert(!lock.isBusy());

@@ -1,3 +1,12 @@
+<next>
+==================
+* Handle errors from user-supplied callback better (Thank you @simeonborko)
+
+
+1.3.1
+==================
+* Show queue name in errors (thank you @luke-stead-sonocent)
+
 1.3.0
 ==================
 * Add maxOccupationTime option (Thank you @abozaralizadeh and @ThePiz)
