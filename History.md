@@ -1,4 +1,4 @@
-<next>
+1.3.2
 ==================
 * Handle errors from user-supplied callback better (Thank you @simeonborko)
 * Ensure the array parameter does not get mutated for batch acquire (Thank you @taschmidt)
