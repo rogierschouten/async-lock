@@ -8,6 +8,7 @@ Lock on asynchronous code
 * Multiple keys lock supported
 * Timeout supported
 * Occupation time limit supported
+* Execution time limit supported
 * Pending task limit supported
 * Domain reentrant supported
 * 100% code coverage
@@ -136,6 +137,12 @@ lock.acquire(key, fn, function(err, ret) {
 var lock = new AsyncLock({maxOccupationTime: 3000});
 lock.acquire(key, fn, function(err, ret) {
 	// occupation time exceeded error will be returned here if job not completed in given time
+});
+
+// Specify max execution time - max amount of time allowed between acquiring the lock and completing execution
+var lock = new AsyncLock({maxExecutionTime: 3000});
+lock.acquire(key, fn, function(err, ret) {
+	// execution time exceeded error will be returned here if job not completed in given time
 });
 
 // Set max pending tasks - max number of tasks allowed in the queue at a time
