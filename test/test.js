@@ -188,6 +188,69 @@ describe('AsyncLock Tests', function () {
 		});
 	});
 
+	it('Max execution time test', function (done) {
+		var lock = new AsyncLock({ maxExecutionTime: 10 });
+		var shortFuncsResults = [];
+		var longFuncsResults = [];
+
+		var funcs = Array(6).fill().map(function (_, idx) {
+			var isLongFuncCheck = idx % 2;
+			var timeout;
+
+			if (isLongFuncCheck) {
+				timeout = 20;
+			} else {
+				timeout = 1;
+			}
+
+			return function () {
+				return new Promise(function (resolve, reject) {
+					var timer;
+
+					lock.acquire('key', function (cb) {
+						timer = setTimeout(function () {
+							if (isLongFuncCheck) {
+								longFuncsResults.push(true);
+							} else {
+								shortFuncsResults.push(true);
+							}
+							cb();
+						}, timeout);
+					}, function (err) {
+						if (err) {
+							// max execution time is passed
+							console.log(err);
+							clearTimeout(timer);
+
+							if (isLongFuncCheck) {
+								longFuncsResults.push(false);
+							} else {
+								shortFuncsResults.push(false);
+							}
+						}
+
+						resolve();
+					});
+				});
+			};
+		});
+
+		Promise.all(funcs.map(function (func) {
+			return func();
+		}))
+		.then(function (args) {
+			assert.equal(shortFuncsResults.length, 3);
+			assert.equal(longFuncsResults.length, 3);
+			assert(shortFuncsResults.every(function (isSuccessful) {
+				return isSuccessful;
+			}));
+			assert(longFuncsResults.every(function (isSuccessful) {
+				return !isSuccessful;
+			}));
+			done();
+		});
+	});
+
 	it('Promise mode (Q)', function (done) {
 		var lock = new AsyncLock();
 		var value = 0;
