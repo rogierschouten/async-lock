@@ -1,3 +1,7 @@
+1.4.0
+==================
+* add execution timeout (thank you @mottymilshtein)
+
 1.3.2
 ==================
 * Handle errors from user-supplied callback better (Thank you @simeonborko)
