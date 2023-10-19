@@ -13,7 +13,6 @@ coverage.html
 .gitignore
 .jshintrc
 .nodemonignore
-.travis.yml
 gruntfile.js
 .settings/
 .sass-cache/

@@ -1,3 +1,7 @@
+1.5.0
+==================
+* Support zone.js
+
 1.4.0
 ==================
 * add execution timeout (thank you @mottymilshtein)

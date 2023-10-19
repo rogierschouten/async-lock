@@ -1,5 +1,5 @@
 'use strict';
-
+require('zone.js');
 var Q = require('q');
 var _ = require('lodash');
 var AsyncLock = require('../index.js');

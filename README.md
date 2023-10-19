@@ -2,8 +2,6 @@
 
 Lock on asynchronous code
 
-[![Build Status](https://travis-ci.org/rogierschouten/async-lock.svg?branch=master)](https://travis-ci.org/rogierschouten/async-lock)
-
 * ES6 promise supported
 * Multiple keys lock supported
 * Timeout supported
@@ -12,6 +10,10 @@ Lock on asynchronous code
 * Pending task limit supported
 * Domain reentrant supported
 * 100% code coverage
+
+## About
+
+It's been since remodified and the code from [rogierschouten](https://github.com/rogierschouten). This package support with angular [zone.js](https://github.com/angular/angular). Provide async lock without missing current async context feature.
 
 ## Disclaimer
 
@@ -170,7 +172,7 @@ See [Changelog](./History.md)
 
 ## Issues
 
-See [issue tracker](https://github.com/rogierschouten/async-lock/issues).
+See [issue tracker](https://github.com/f25b/async-lock/issues).
 
 ## License
 

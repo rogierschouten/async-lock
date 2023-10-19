@@ -1,20 +1,19 @@
 {
   "name": "async-lock",
   "description": "Lock on asynchronous code",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "author": {
-    "name": "Rogier Schouten",
-    "url": "https://github.com/rogierschouten/",
-    "email": "github@workingcode.ninja"
+    "name": "SYSTEX-F25B",
+    "url": "https://github.com/rogierschouten/"
   },
   "private": false,
-  "homepage": "https://github.com/rogierschouten/async-lock",
+  "homepage": "https://github.com/f25b/async-lock",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rogierschouten/async-lock.git"
+    "url": "https://github.com/f25b/async-lock.git"
   },
   "bugs": {
-    "url": "https://github.com/rogierschouten/async-lock/issues"
+    "url": "https://github.com/f25b/async-lock/issues"
   },
   "license": "MIT",
   "keywords": [
@@ -23,7 +22,8 @@
     "concurrency",
     "critical",
     "section",
-    "mutex"
+    "mutex",
+    "zone.js"
   ],
   "engines": {},
   "scripts": {
@@ -43,6 +43,10 @@
     "lodash": "^4.17.20",
     "mocha": "^7.1.2",
     "q": "^1.5.1",
-    "should": "^13.2.1"
+    "should": "^13.2.1",
+    "zone.js": "^0.14.0"
+  },
+  "publishConfig": {
+    "registry": "http://f25b-nxrm.f25b.com:8081/repository/npm/"
   }
 }

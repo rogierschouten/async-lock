@@ -21,7 +21,8 @@
 		"jasmine": true,
 		"angular": true,
 		"ApplicationConfiguration": true,
-		"Promise": true
+		"Promise": true,
+		"Zone": true
 	},
 	"predef": [ // Extra globals.
 		"define",
