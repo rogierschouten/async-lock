@@ -1,7 +1,7 @@
 {
   "name": "async-lock",
   "description": "Lock on asynchronous code",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "author": {
     "name": "Rogier Schouten",
     "url": "https://github.com/rogierschouten/",
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/rogierschouten/async-lock",
   "repository": {
     "type": "git",
-    "url": "https://github.com/rogierschouten/async-lock.git"
+    "url": "git+https://github.com/rogierschouten/async-lock.git"
   },
   "bugs": {
     "url": "https://github.com/rogierschouten/async-lock/issues"
