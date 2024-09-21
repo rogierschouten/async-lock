@@ -15,11 +15,11 @@ Lock on asynchronous code
 
 ## Disclaimer
 
-I did not create this package, and I will not add any features to it myself. I was granted the ownership because it was no longer being
-maintained, and I volunteered to fix a bug.
+I did not create this package. I was granted the ownership because it was no longer being maintained, and I volunteered to fix a bug.
+I will not do any maintenance on it other than merge PRs.
 
-If you have a new feature you would like to have incorporated, please send me a PR and I will be happy to work with you and get it merged.
-For any bugs, PRs are most welcome but when possible I will try to get them resolved as soon as possible.
+**DO NOT EXPECT ME TO ADD FEATURES OR FIX BUGS.  PRs WELCOME**
+
 
 ## Why do you need locking on single threaded nodejs?
 
