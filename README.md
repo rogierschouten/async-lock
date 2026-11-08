@@ -105,6 +105,8 @@ lock.acquire(key, function() {
 lock.acquire([key1, key2], fn, cb);
 ```
 
+Repeated keys are acquired once, in the order of their first occurrence. The key array is not modified.
+
 ## Domain reentrant lock
 
 Lock is reentrant in the same domain
