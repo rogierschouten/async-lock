@@ -1,3 +1,7 @@
+1.5.0
+==================
+* Fix for #64 avoid self-deadlock by deduplicating keys. (thank you Nash Aschenbath)
+
 1.4.0
 ==================
 * add execution timeout (thank you @mottymilshtein)
