@@ -175,15 +175,15 @@ describe('AsyncLock Tests', function () {
 		.catch(function (err) {
 			// max occupation time is passed
 			console.log(err);
-			assert.equal(++order, 1);
-			// release the lock and cancel the job if needed
+			assert.equal(++order, 2);
+			// The timeout released the lock; finishing late must not release it again.
 			maxOccupationTimeExceeded = true;
 			callBack();
 		});
 
 		lock.acquire('key', function (cb) {
 			// Should be executed first
-			assert.equal(++order, 2);
+			assert.equal(++order, 1);
 			cb();
 		});
 	});
