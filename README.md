@@ -166,6 +166,29 @@ lock.acquire(key, fn2, cb); // added to queue
 lock.acquire(key, priorityFn, cb, {skipQueue: true}); // jumps queue and runs before fn2
 ```
 
+## Recognising lock errors
+
+Errors raised by the lock inherit from `AsyncLock.AsyncLockError` and `Error`.
+Errors thrown or returned by your worker are passed through unchanged:
+
+```js
+lock.acquire(key, fn).catch(function (err) {
+	if (err instanceof AsyncLock.AsyncLockTimeoutError) {
+		// The task waited too long to acquire its key.
+	} else if (err instanceof AsyncLock.AsyncLockError) {
+		// Another lock error, such as a pending limit or execution timeout.
+	} else {
+		throw err; // The worker's own error.
+	}
+});
+```
+
+The exported queue error types are `AsyncLockTimeoutError`,
+`AsyncLockMaxOccupationTimeError`, `AsyncLockMaxExecutionTimeError` and
+`AsyncLockMaxPendingError`. Each has a `key` property naming the affected queue.
+They are available on the `AsyncLock` constructor and reach both callbacks and
+promise rejection handlers. Existing error messages are preserved.
+
 When `maxOccupationTime` expires while a task owns the lock, the next queued
 task can acquire it. If it expires while waiting, that task is skipped without
 releasing the current holder. A timeout does not cancel the work in `fn`; stop
