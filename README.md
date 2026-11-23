@@ -166,6 +166,12 @@ lock.acquire(key, fn2, cb); // added to queue
 lock.acquire(key, priorityFn, cb, {skipQueue: true}); // jumps queue and runs before fn2
 ```
 
+When `maxOccupationTime` expires while a task owns the lock, the next queued
+task can acquire it. If it expires while waiting, that task is skipped without
+releasing the current holder. A timeout does not cancel the work in `fn`; stop
+any ongoing work yourself so it cannot overlap the next task. Completing a
+timed-out task later does not release another task's lock.
+
 ## Changelog
 
 See [Changelog](./History.md)
