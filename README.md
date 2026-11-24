@@ -128,6 +128,11 @@ d.run(function() {
 
 ## Options
 
+Options passed to `acquire` override the constructor defaults for that acquisition.
+Passing `0` for `timeout`, `maxOccupationTime`, or `maxExecutionTime` disables that
+timer. Passing `maxPending: 0` allows immediate acquisition of a free key but
+rejects an acquisition that would need to wait in its queue.
+
 ```js
 // Specify timeout - max amount of time an item can remain in the queue before acquiring the lock
 var lock = new AsyncLock({timeout: 5000});
