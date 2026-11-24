@@ -56,6 +56,22 @@ lock.acquire('key', function(cb) {
 
 ## Get Started
 
+In a browser, load `lib/index.js` as a classic script. It exposes `AsyncLock`
+without a module loader or a bundler:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/async-lock/lib/index.js"></script>
+<script>
+  var lock = new AsyncLock();
+  lock.acquire('key', function () { return 'done'; });
+</script>
+```
+
+The script includes the typed error constructors as properties of `AsyncLock`.
+Use a browser with native `Promise` support or pass `opts.Promise`. Node's
+`domainReentrant` option requires a `process.domain` implementation and is not
+available in a plain browser. CommonJS imports continue to work as before.
+
 ```js
 var AsyncLock = require('async-lock');
 var lock = new AsyncLock();
