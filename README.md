@@ -156,6 +156,9 @@ lock.acquire(key, fn, function(err, ret) {
 // Whether there is any running or pending async function
 lock.isBusy();
 
+// Whether a particular key has running or pending work (including an empty string key)
+lock.isBusy(key);
+
 // Use your own promise library instead of the global Promise variable
 var lock = new AsyncLock({Promise: require('bluebird')}); // Bluebird
 var lock = new AsyncLock({Promise: require('q')}); // Q
